@@ -13,23 +13,30 @@ import os
 from pathlib import Path
 from dotenv import load_dotenv
 load_dotenv()
+import os
+from pathlib import Path
+from dotenv import load_dotenv
 
-SECRET_KEY = os.getenv("SECRET_KEY")
-DEBUG = os.getenv("DEBUG") == "True"
-ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS").split(",")
+load_dotenv()
+
+SECRET_KEY = os.getenv("SECRET_KEY", "fallback-secret-key")
+
+DEBUG = os.getenv("DEBUG", "False") == "True"
+
+ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS", "127.0.0.1,localhost").split(",")
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.getenv("DB_NAME"),
-        'USER': os.getenv("DB_USER"),
-        'PASSWORD': os.getenv("DB_PASSWORD"),
-        'HOST': os.getenv("DB_HOST"),
-        'PORT': os.getenv("DB_PORT"),
+    "default": {
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": os.getenv("DB_NAME", "postgres"),
+        "USER": os.getenv("DB_USER", "postgres"),
+        "PASSWORD": os.getenv("DB_PASSWORD", ""),
+        "HOST": os.getenv("DB_HOST", "localhost"),
+        "PORT": os.getenv("DB_PORT", "5432"),
     }
 }
 
-API_KEY = os.getenv("API_KEY")
+API_KEY = os.getenv("API_KEY", "")
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
