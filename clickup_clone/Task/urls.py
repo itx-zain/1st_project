@@ -5,3 +5,4 @@ router = DefaultRouter()
 router.register(r'tasks', TaskViewSet)
 
 urlpatterns = router.urls
+
