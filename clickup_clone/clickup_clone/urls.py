@@ -25,7 +25,7 @@ urlpatterns = [
     path('api/folder/', include('Folder.urls')),
     path('api/list/', include('List.urls')),
     path('api/task/', include('Task.urls')),
-
+    path('api/accounts/',include('accounts.urls')),
     # JWT endpoints
      path('gettoken/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
      path('refresh/', TokenRefreshView.as_view(), name='token_refresh'),
