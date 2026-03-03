@@ -72,6 +72,8 @@ INSTALLED_APPS = [
     'sub_Task',
     'rest_framework',
     'rest_framework_simplejwt',
+    'roles',
+
 
 ]
 
