@@ -9,7 +9,7 @@ class Role(models.Model):
     def __str__(self):
         return f"{self.name} ({self.workspace})"
 
-# Permission model
+
 class Permission(models.Model):
     role = models.ForeignKey(Role, on_delete=models.CASCADE, related_name="permissions")
     name = models.CharField(max_length=100)
@@ -17,7 +17,7 @@ class Permission(models.Model):
     def __str__(self):
         return f"{self.name} - {self.role.name}"
 
-# UserProfile model to link User → Role
+
 class UserProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name="roles_userprofile")
     role = models.ForeignKey(Role, on_delete=models.SET_NULL, null=True, blank=True)
