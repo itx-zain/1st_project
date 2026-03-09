@@ -59,7 +59,7 @@ class Task(models.Model):
 
     def save(self, *args, **kwargs):
 
-        # jab task start ho
+
         if self.status == "inprogress" and not self.start_time:
             self.start_time = timezone.now()
 
